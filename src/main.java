@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class main {
 
     public static void main(String[] args) {
-        System.out.println("hello word");
+        //System.out.println("hello word");
 
         // System.out.println(buscarNome()); OU
 
@@ -12,16 +14,23 @@ public class main {
 
         System.out.println(inserirNome); */
 
-       /* double imc = calcularIMC();
+       // double imc = calcularIMC();
 
-        System.out.println("Seu IMC é: " + imc); */
+       // System.out.println("Seu IMC é: " + imc);
 
-        String dica = dicas();
+      /*  String dica = dicas();
         System.out.println(dica);
 
         int idade = calculoDeIdade();
 
-        System.out.println("Sua Idade é: " + idade);
+        System.out.println("Sua Idade é: " + idade); */
+
+
+        // sempre colocar um metodo ou varias informções dentro de uma variavel
+        // quando usar o tipo de variavel: List, mudar o tipo dela em todos os lugares
+       List<String> resumopessoa = resumoDaPessoa();
+
+        System.out.println(resumopessoa);
 
     }
 
@@ -79,16 +88,62 @@ public class main {
 
         int idade = ano - nascimento;
 
-        if (idade < 18){
+        if (idade < 18) {
             System.out.println("Voce é Menor de Idade");
         } else {
             System.out.println("Voce é Maior de Idade");
         }
 
-        return idade ;
+        return idade;
     }
 
-    public static String dicas(){
+    // muda o tipo do metodo para: List
+    public static List<String> resumoDaPessoa(){
+
+    // List <o tipo de variavel que vai aqui é a do tipo do retorno do metodo>
+        List<String> nomesResumos = new ArrayList<>();
+
+        for (int i = 1; i < 4; i++){
+            Scanner ler = new Scanner(System.in);
+
+            String tipoDePessoa;
+
+            System.out.printf("Digite seu Primeiro Nome: ");
+            String nome = ler.next();
+
+            System.out.printf("Digite o seu sobrenome: ");
+            String sobrenome = ler.next();
+
+            System.out.printf("Digite o sua idade: ");
+            int idade = ler.nextInt();
+
+            String nomeCompleto = nome + " " + sobrenome;
+
+            if(idade <= 17){
+                tipoDePessoa = "Menor De Idade";
+            } else {
+                tipoDePessoa = "Maior De Idade";
+            }
+        // sempre juntas varias informações ou variaveis em uma só variavel
+            String resumo = "O Nome Completo é: " + nomeCompleto + ", e tem:  " + idade + " Anos de Idade, e è " + tipoDePessoa;
+
+            // nome da lista + .add(adicionar 1 laço por lista), .all(adicionar tudo de uma vez)  (variavel que juntou/ agrupou tudo)=
+            nomesResumos.add(resumo);
+
+        }
+
+    // retornar o nome da List (lista)
+        return (nomesResumos);
+
+    }
+
+
+
+
+
+
+
+    public static String dicas() {
         return "Dica de Site Para Treinar a Logica de Estrurura de Metodos: https://silentteacher.toxicode.fr/ ";
     }
 
